@@ -19,7 +19,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 #本项目是用vue2.0写的购物webapp(纯属个人练习，不用于商务)
 #book-vue
-</pre>
+<pre>
 ├─  .gitignore          # 忽略无需git控制的文件  比如 node_modules
 ├─  package.json        # 项目配置
 ├─  README.md           # 项目说明
