@@ -46,3 +46,14 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
     │
     ├─assets              # 静态资源包(各种图片)
 </pre>
+
+## 技术栈
+
+vue2.0,
+vue-router2.0,
+vue-cli,
+webpack,
+Es6,
+vux,
+mintui,
+axios
