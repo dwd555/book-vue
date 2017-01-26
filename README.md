@@ -34,7 +34,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 │
 ├─static                  # 开发目录
 
-    │	data		#php文件
+    │	data		#php文件及数据库，需要在支持php的服务器上跑，并在main.js上更改axios的默认地址
 │
 └─src                  # 开发目录
     │

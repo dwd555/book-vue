@@ -12,15 +12,17 @@ $sql="SELECT newprice FROM books WHERE bid='$bid'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_row($result);
 $single_price=$row[0];
-
-$sql="SELECT cid FROM cartlist WHERE bid='$bid'";
+//echo $cid;
+//echo $bid;
+$sql="SELECT cid FROM cartlist WHERE cid='$cid' AND bid='$bid'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_row($result);
+//var_dump($row);
 if($row==NULL){
     $sql="INSERT INTO cartlist VALUES('NULL','$cid','$bid','1','$single_price','5')";
     $result=mysqli_query($conn,$sql);
 }else{
-    $sql="UPDATE cartlist SET count=count+1 WHERE bid='$bid'";
+    $sql="UPDATE cartlist SET count=count+1 WHERE bid='$bid' AND cid='$cid'";
     $result=mysqli_query($conn,$sql);
 }
 

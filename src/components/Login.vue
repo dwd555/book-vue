@@ -1,6 +1,6 @@
 <template>
 	<div>
-		 <MyHeader bgcolor='#fff' fontcolor='#000' borderbottom='1px solid #ddd' title='登录'></MyHeader>
+		 <MyHeader  title='登录'></MyHeader>
 		 <section class="main">		 		
 		 		<div class='inp' :class="{'err':err}">
 		 			<span class='icon'></span>
@@ -17,7 +17,9 @@
 		 		<mt-button class='loginBtn' :disabled='disabled' type="danger" size="large" @click='login'>登录</mt-button>
 		 		<dl class="func">
 				<dt><a >找回密码</a></dt>
-				<dd><a >注册</a></dd>
+				<dd>
+					<router-link to='/login/register'>注册</router-link>
+				</dd>
 			</dl>
 		 </section>
 		 <section class="page_lr another">
@@ -58,7 +60,7 @@
 				userName:'',
 				userPwd:'',
 				err:false,
-				isLogin:false
+				isLogin:false,
 			}
 		},
 		components:{

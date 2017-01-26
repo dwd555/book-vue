@@ -11,7 +11,7 @@
       		<cell title="已绑定手机号" is-link @click.native='developing'>
        	 		  <span slot="value" style="color: #3a3a3a;font-size:14px">{{phone}}</span>
       		</cell>
-      		<cell title="修改收货地址" is-link>
+      		<cell title="修改收货地址" is-link link="/main/personCenter/myAccount/address">
       		 <span slot="value" style="color: #3a3a3a"></span>
       		</cell>
     	</group>
@@ -81,7 +81,7 @@
 			updateNickname(){
 				var nickname=this.username;
 				var _this=this;
-				MessageBox.prompt('请输入昵称','',{inputValue:nickname}).then(({ value, action }) => {
+				MessageBox.prompt('请输入昵称').then(({ value, action }) => {
 					this.$http.get('update_nickname.php?phone='+this.phone+'&nickname='+value).then(function(res){
 						if(res.data.msg=='succ'){
 							Toast({
