@@ -85,6 +85,7 @@
 
 <script>
   import {Swiper, SwiperItem, Icon,Badge} from 'vux'
+  import {Indicator} from 'mint-ui'
 
   import img1 from '../assets/carousel/700x270_gr_12151.png'
   import img2 from '../assets/carousel/1218-wx-y-700-270.jpg'
@@ -142,7 +143,16 @@
       },
       getBookList(){
         let _this = this;
+        Indicator.open({
+            text: '加载中...',
+            spinnerType: 'fading-circle'
+          });
         this.$http.get('booklist.php').then(function (res) {
+          if(res.data){
+            Indicator.close();
+          }else{
+              
+          }
           _this.book_list = res.data;
           //console.log(res.data)
         }).catch(function (err) {

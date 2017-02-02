@@ -20,6 +20,7 @@ import Address from './components/Address.vue'
 import addAddress from './components/addAddress.vue'
 import editAddress from './components/editAddress.vue'
 import Register from './components/Register.vue'
+import Order from './components/Order.vue'
 import './js/cookie.js'
 
 Vue.use(VueRouter)
@@ -42,6 +43,7 @@ const routes = [
   {path:'/main/personCenter',component:PersonCenter},
   // {path: '/main/cart', component: Cart},
   {path: '/main/home/detail/:id', component: Detail},
+  {path: '/main/home/order', component: Order},
   {path:'/login',component:Login},
   {path:'/login/register',component:Register},
   {path:'/main/home/search',component:Search},

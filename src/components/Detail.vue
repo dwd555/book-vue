@@ -75,8 +75,8 @@
         </div>
       </a>
 
-
     </section>
+    <MyCount :min='1' :max='200' style='margin-top:0;margin-bottom:0.25rem;font-size:16px;' v-model='book_count'></MyCount>
     <section class="jump">
       <a class="arrow_con">
         <div class="arrow">
@@ -114,7 +114,7 @@
 
       </div>
       <div class="btn_con">
-        <button class="buy J_buy" >立即购买</button>
+        <button class="buy J_buy" @click='buy'>立即购买</button>
         <button class="add" @click='addItem'>加入购物车</button>
       </div>
 
@@ -124,12 +124,14 @@
 <script>
   import {Swiper, SwiperItem} from 'vux'
   import MyHeader from './Header.vue'
-  import {Toast} from 'mint-ui';
+  import {Toast,Indicator} from 'mint-ui'
+  import MyCount from './CountNum.vue'
   export default {
     components: {
       MyHeader,
       Swiper,
-      SwiperItem
+      SwiperItem,
+      MyCount
     },
     data(){
       return {
@@ -140,7 +142,9 @@
         img_lg: [],
         advertisement: [],
         isLogin:false,
-        cartlistCount:0
+        cartlistCount:0,
+        bid:'',
+        book_count:1
       }
     },
     computed: {
@@ -184,6 +188,7 @@
         }
       },
       fetchData(){
+        this.bid=this.$route.params.id;
         let id = this.$route.params.id;
         let _this = this;
         this.$http.get('bookdetail.php?id=' + id).then(function (res) {
@@ -225,6 +230,28 @@
                   duration: 2000
                 });
                 _this.cartlistCount=res.data.total;
+              }
+            }).catch(function (err) {
+              console.log(err);
+            });
+        }
+      },
+      buy(){
+        let bid=this.bookDetail.bid;
+        let uid=this.getCookie('BOOK_user_uid');
+        let count=this.book_count;
+        let _this=this;
+        if(this.isLogin=false){
+          this.$router.push('/login');
+        }else{
+          Indicator.open({
+            text: '加载中...',
+            spinnerType: 'fading-circle'
+          });
+            this.$http.get('order.php?bid='+bid+'&uid='+uid+'&count='+count).then(function (res) {
+              if(res.data.msg=='succ'){
+                Indicator.close();
+                _this.$router.push('/main/home/order');
               }
             }).catch(function (err) {
               console.log(err);

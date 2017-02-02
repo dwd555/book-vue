@@ -116,6 +116,7 @@
                               name:val.name,
                               img_sm:val.img_sm
                             }));
+                            _this.cartlist.reverse();
                             //console.log(list)
                         }else if(res.data.msg=='null'){
                             _this.cartlist=[];
