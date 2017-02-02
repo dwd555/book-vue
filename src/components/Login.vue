@@ -28,19 +28,19 @@
 	</span>
 	<ul>
 		<li class="qq">
-			<a href="https://mpassport.dangdang.com/login_third.php?app=qq&amp;burl=http%3A%2F%2Fhome.m.dangdang.com%2F%3F%26login_app%3Dweb&amp;sid=fd4d2eb467c82428017543932703bf06">
+			<a href="javascript:void(0)">
 				<em>腾讯QQ</em>
 				<i>腾讯QQ</i>
 			</a>
 		</li>
         		<li class="alipay">
-			<a href="https://mpassport.dangdang.com/login_third.php?app=alipay&amp;burl=http%3A%2F%2Fhome.m.dangdang.com%2F%3F%26login_app%3Dweb&amp;sid=fd4d2eb467c82428017543932703bf06">
+			<a href="javascript:void(0)">
 				<em>支付宝</em>
 				<i>支付宝</i>
 			</a>
 		</li>
         		<li class="sina">
-			<a href="https://mpassport.dangdang.com/login_third.php?app=sina&amp;burl=http%3A%2F%2Fhome.m.dangdang.com%2F%3F%26login_app%3Dweb&amp;sid=fd4d2eb467c82428017543932703bf06">
+			<a href="javascript:void(0)">
 				<em>新浪微博</em>
 				<i>新浪微博</i>
 			</a>

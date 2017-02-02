@@ -140,7 +140,7 @@
 								let pwd=_this.userPwd;
 							 _this.$http.post('register.php',qs.stringify({'phone':phone,'pwd':pwd}),{headers: {'Content-Type': 'application/x-www-form-urlencoded',},
 							 }).then(function(res){
-							 	console.log(res);
+							 	//console.log(res);
 							 	if(res.data.msg=='err'){
 							 		Toast({
 									  message: '手机已注册',

@@ -1,7 +1,7 @@
 <template>
 	<div class='order_body'>
     <MyHeader  title='填写订单'></MyHeader>
-    <div class='address'>
+    <div class='address' @click='editAddress'>
         <div class='address_item'>{{address.name}}</div>
         <div class='address_item'>
             {{address.phone}}
@@ -62,7 +62,7 @@
                     let _this=this;
                     this.$http.post('getOrder.php',qs.stringify({'uid':uid}),{headers: {'Content-Type': 'application/x-www-form-urlencoded',},
                     }).then(function(res){
-                        console.log(res);
+                        //console.log(res);
                         _this.address=res.data.address[0];
                         _this.cartlist=res.data.cart;
                         _this.total=res.data.total;
@@ -72,6 +72,9 @@
                 }else{
                     this.$router.push('/login');
                 }
+            },
+            editAddress(){
+                this.$router.push('/main/personCenter/myAccount/address');
             }
 		},
 		computed:{

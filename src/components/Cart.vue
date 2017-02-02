@@ -172,7 +172,7 @@
             },
             updateSql(uid,selected){
                 this.$http.get('updateAllSelected.php?uid='+uid+'&selected='+selected).then(function(res){
-                    console.log(res);
+                    //console.log(res);
                 }).catch(function(err){
                     console.log(err);
                 })
