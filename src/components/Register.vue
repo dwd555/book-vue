@@ -134,7 +134,7 @@
 					this.verify=''
 					this.refresh();
 				}else{
-					this.$http.get('verifycode.php?authcode='+this.verify).then(function(res){
+					this.$http.get('verifycode.php?authcode='+this.verify.toLowerCase()).then(function(res){
 						if(res.data.msg=='succ'){
 								let phone=_this.userName;
 								let pwd=_this.userPwd;

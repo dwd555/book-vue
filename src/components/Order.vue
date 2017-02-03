@@ -25,7 +25,7 @@
             </div>
             <div class='order-detail'>
                 <p class='product_name'>{{item.name}}</p>
-                <p class='product_price'><i>¥{{item.single_price}}</i>&nbsp;x1</p>
+                <p class='product_price'><i>¥{{item.single_price}}</i>&nbsp;x{{item.count}}</p>
             </div>
         </div>
     </div>
@@ -64,7 +64,7 @@
                     }).then(function(res){
                         //console.log(res);
                         _this.address=res.data.address[0];
-                        _this.cartlist=res.data.cart;
+                        _this.cartlist=res.data.cart.reverse();
                         _this.total=res.data.total;
                     }).catch(function(err){
                         console.log(err);

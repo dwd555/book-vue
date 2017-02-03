@@ -64,7 +64,7 @@
         </div>
        
         <div class="fr"> 
-           <mt-button size="normal" type='danger'>去结算({{itemCount}})</mt-button>
+           <mt-button size="normal" type='danger' @click='order'>去结算({{itemCount}})</mt-button>
         </div>
         <div class="fr totalPrice">
                     <span>合计:</span>
@@ -191,6 +191,9 @@
                 }).catch(function(res){
                     //console.log(res)
                 });
+            },
+            order(){
+                this.$router.push('/main/home/order');
             }
 		},
 		computed:{
