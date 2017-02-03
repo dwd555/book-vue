@@ -220,7 +220,7 @@
         let bid=this.bookDetail.bid;
         let uid=this.getCookie('BOOK_user_uid');
         let _this=this;
-        if(this.isLogin=false){
+        if(this.isLogin==false){
           this.$router.push('/login');
         }else{
             this.$http.get('addItem.php?bid='+bid+'&uid='+uid).then(function (res) {
@@ -241,7 +241,7 @@
         let uid=this.getCookie('BOOK_user_uid');
         let count=this.book_count;
         let _this=this;
-        if(this.isLogin=false){
+        if(this.isLogin==false){
           this.$router.push('/login');
         }else{
           Indicator.open({
