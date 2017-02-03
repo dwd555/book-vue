@@ -64,7 +64,7 @@
                     let _this=this;
                     this.$http.post('getOrder.php',qs.stringify({'uid':uid}),{headers: {'Content-Type': 'application/x-www-form-urlencoded',},
                     }).then(function(res){
-                        console.log(res);
+                        //console.log(res);
                         if(res.data.address.length==0){
 
                         }else{
@@ -72,7 +72,7 @@
                         }
                         _this.cartlist=res.data.cart.reverse();
                         _this.total=res.data.total;
-                        console.log(_this.address)
+                        //console.log(_this.address)
                     }).catch(function(err){
                         console.log(err);
                     })

@@ -66,7 +66,7 @@
 				if(this.isLogin==false){
 					this.$router.push('/login');
 				}else{
-					console.log('跳到修改资料页')
+					//console.log('跳到修改资料页')
 				}
 			},
 			logout(){

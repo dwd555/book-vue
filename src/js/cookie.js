@@ -29,9 +29,9 @@ Vue.prototype.getCookie=function(name){
 Vue.prototype.delCookie=function(name){  
     var exp = new Date();  //当前时间  
     exp.setTime(exp.getTime() - 1);
-    console.log(exp)
+    //console.log(exp)
     var cval=this.getCookie(name);
-    console.log(cval)  
+    //console.log(cval)  
     if(cval!=null){
         document.cookie= name + "="+cval+";expires="+exp.toGMTString()+ "; path=/";  
     }
