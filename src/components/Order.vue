@@ -2,13 +2,15 @@
 	<div class='order_body'>
     <MyHeader  title='填写订单'></MyHeader>
     <div class='address' @click='editAddress'>
-        <div class='address_item'>{{address.name}}</div>
-        <div class='address_item'>
-            {{address.phone}}
-        </div>
-        <div class='location'>
-            {{address.address}}
-        </div>
+        <div v-if='address'>
+            <div class='address_item'>{{address.name}}</div>
+            <div class='address_item'>
+                {{address.phone}}
+            </div>
+            <div class='location'>
+                {{address.address}}
+            </div>
+         </div>
         <div v-if='address.length<1'>
             请选择地址
         </div>
@@ -62,10 +64,15 @@
                     let _this=this;
                     this.$http.post('getOrder.php',qs.stringify({'uid':uid}),{headers: {'Content-Type': 'application/x-www-form-urlencoded',},
                     }).then(function(res){
-                        //console.log(res);
-                        _this.address=res.data.address[0];
+                        console.log(res);
+                        if(res.data.address.length==0){
+
+                        }else{
+                           _this.address=res.data.address[0]; 
+                        }
                         _this.cartlist=res.data.cart.reverse();
                         _this.total=res.data.total;
+                        console.log(_this.address)
                     }).catch(function(err){
                         console.log(err);
                     })
@@ -82,7 +89,6 @@
 		},
         created(){
             this.init();
-            console.log(this.address)
         }
 
 	}
