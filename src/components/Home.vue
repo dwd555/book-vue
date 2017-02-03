@@ -217,9 +217,9 @@
             this.$router.push('/main/home');
             break;
 
-          case 'nearby':
-            this.$router.push('/main/nearby');
-            break;
+          // case 'nearby':
+          //   this.$router.push('/main/nearby');
+          //   break;
 
           case 'cart':
             this.$router.push('/main/cart');
