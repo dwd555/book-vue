@@ -68,10 +68,12 @@ const router = new VueRouter({
   routes,
 })
 /*release*/
-axios.defaults.baseURL = '/project/static/data';
+//axios.defaults.baseURL = '/project/static/data';
+//新浪云
+//axios.defaults.baseURL = '/static/data';
 //
 /*调试*/
-//axios.defaults.baseURL = 'http://192.168.31.128/project/static/data';
+axios.defaults.baseURL = 'http://192.168.31.128/project/static/data';
 //axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 //axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 

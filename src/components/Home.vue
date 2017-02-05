@@ -85,7 +85,7 @@
 
 <script>
   import {Swiper, SwiperItem, Icon,Badge} from 'vux'
-  import {Indicator} from 'mint-ui'
+  import {Indicator,Toast} from 'mint-ui'
 
   import img1 from '../assets/carousel/700x270_gr_12151.png'
   import img2 from '../assets/carousel/1218-wx-y-700-270.jpg'
@@ -217,9 +217,13 @@
             this.$router.push('/main/home');
             break;
 
-          // case 'nearby':
+           case 'nearby':
           //   this.$router.push('/main/nearby');
-          //   break;
+            Toast({
+              message: '开发中',
+              duration: 1000
+            });
+             break;
 
           case 'cart':
             this.$router.push('/main/cart');
