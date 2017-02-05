@@ -23,7 +23,7 @@ $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_row($result);
 //var_dump($row);
 if($row==NULL){
-    $sql="INSERT INTO cartlist VALUES('NULL','$cid','$bid','1','$single_price','5')";//购物车没有这本书则插入，并让他选中
+    $sql="INSERT INTO cartlist VALUES('NULL','$cid','$bid','$count','$single_price','5')";//购物车没有这本书则插入，并让他选中
     $result=mysqli_query($conn,$sql);
 }else{
     //$sql="UPDATE cartlist SET count=count+1 WHERE bid='$bid' AND cid='$cid'";
