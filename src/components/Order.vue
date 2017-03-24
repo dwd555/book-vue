@@ -37,14 +37,14 @@
                 总额:
                 <i>¥{{total}}</i>
             </div>
-            <mt-button type="danger" style='height:46px;float:right'>提交订单</mt-button>
+            <mt-button type="danger" style='height:46px;float:right' @click='submitData'>提交订单</mt-button>
         </div>
     </footer>
-	
   </div>
 </template>
 <script>
 	import MyHeader from './Header.vue'
+    import {Indicator,Toast} from 'mint-ui'
     import qs from 'qs'
 	export default{
 		components:{
@@ -54,13 +54,16 @@
 			return{
                 address:[],
                 cartlist:[],
-                total:0
+                total:0,
+                uid:'',
+                loading:false
 			}
 		},
 		methods:{
             init(){
                 if(this.getCookie('BOOK_user_uid')!==null){
                     let uid=this.getCookie('BOOK_user_uid');
+                    this.uid=uid;
                     let _this=this;
                     this.$http.post('getOrder.php',qs.stringify({'uid':uid}),{headers: {'Content-Type': 'application/x-www-form-urlencoded',},
                     }).then(function(res){
@@ -72,7 +75,7 @@
                         }
                         _this.cartlist=res.data.cart.reverse();
                         _this.total=res.data.total;
-                        //console.log(_this.address)
+                        //console.log(_this.cartlist)
                     }).catch(function(err){
                         console.log(err);
                     })
@@ -82,6 +85,31 @@
             },
             editAddress(){
                 this.$router.push('/main/personCenter/myAccount/address');
+            },
+            submitData(){
+                Indicator.open({
+                    text: '加载中...',
+                    spinnerType: 'fading-circle'
+                  });   
+                this.$http.post('submitData.php',qs.stringify({'uid':this.uid}),{headers: {'Content-Type': 'application/x-www-form-urlencoded',},
+                    }).then(function(res){
+                        if(res.data.msg="succ"){
+                            setTimeout(function() {
+                                Indicator.close()
+                            }, 2000);
+                        }else{
+                            
+                        }
+                    }).catch(function(err){
+                        if(err.message=="Network Error"){
+                            Indicator.close();
+                            Toast({
+                                message: '谭嘉智吃屎啦！',
+                                duration: 2000
+                            });
+                        }
+                    })
+
             }
 		},
 		computed:{

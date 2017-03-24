@@ -18,6 +18,7 @@
         <ul>
             <li v-for="item in hotlist">
             <router-link :to="{path:'/main/home/detail/'+item.bid}">{{item.name}}</router-link>
+            </li>
         </ul>
     </div>
 		 <ul class="bookList_ul j_bookList_ul" style='padding-top:70px;' v-show='!hotSearch'>

@@ -118,3 +118,12 @@ INSERT INTO icons VALUES
 (NULL,"img/icon-list/android-icons_08.png"),
 (NULL,"img/icon-list/android-icons_09.png"),
 (NULL,"img/icon-list/android-icons_10.png");
+
+#m我的订单表
+CREATE TABLE myorder(
+mid INT PRIMARY KEY AUTO_INCREMENT,
+cid INT
+bid INT,
+count INT,
+price FLOAT(6,2)
+);

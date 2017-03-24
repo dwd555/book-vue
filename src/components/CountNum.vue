@@ -1,19 +1,19 @@
 <template>
-	<div class="weui_cells vux-no-group-title">
-            <div class="weui_cell">
-    <div class="weui_cell_bd weui_cell_primary">
+	<div class="weui-cells vux-no-group-title">
+            <div class="weui-cell">
+    <div class="weui-cell__bd weui-cell-primary">
       <p>数量</p>
     </div>
-    <div class="weui_cell_ft" v-show="!readonly" style="font-size:0">
+    <div class="weui-cell__ft" v-show="!readonly" style="font-size:0">
       <a @click="sub" class="vux-number-selector vux-number-selector-sub":class="{'vux-number-disabled':disabledMin}">-</a>
       <input @blur='checkNum' v-model.number="currentValue" :name="name" class="vux-number-input" :style="{width: width}" :readonly="!fillable"  type="text"/>
       <a @click="add" class="vux-number-selector vux-number-selector-plus" :class="{'vux-number-disabled':disabledMax}">+</a>
     </div>
-    <div class="weui_cell_ft" v-show="readonly">
+    <div class="weui-cell__ft" v-show="readonly">
       {{value}}
     </div>
   </div>
-          </div>
+  </div>
 </template>
 <script>
 import {Toast} from 'mint-ui';

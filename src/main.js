@@ -21,6 +21,7 @@ import addAddress from './components/addAddress.vue'
 import editAddress from './components/editAddress.vue'
 import Register from './components/Register.vue'
 import Order from './components/Order.vue'
+import MyOrder from './components/myOrder.vue'
 import './js/cookie.js'
 
 Vue.use(VueRouter)
@@ -51,6 +52,7 @@ const routes = [
   {path:'/main/personCenter/myAccount/address',component:Address},
   {path:'/main/personCenter/myAccount/address/addAddress',component:addAddress},
   {path:'/main/personCenter/myAccount/address/editAddress:aid',component:editAddress},
+  {path:'/main/personCenter/myOrder',component:MyOrder},
   {path: '*', redirect: '/main/home'}
 ]
 
@@ -73,7 +75,8 @@ const router = new VueRouter({
 //axios.defaults.baseURL = '/static/data';
 //
 /*调试*/
-axios.defaults.baseURL = 'http://192.168.31.128/project/static/data';
+//axios.defaults.baseURL = 'http://192.168.31.128/project/static/data';
+axios.defaults.baseURL = 'http://127.0.0.1/myproject/book-vue/static/data';
 //axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 //axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
