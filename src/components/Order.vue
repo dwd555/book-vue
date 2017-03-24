@@ -87,6 +87,7 @@
                 this.$router.push('/main/personCenter/myAccount/address');
             },
             submitData(){
+                let _this=this;
                 Indicator.open({
                     text: '加载中...',
                     spinnerType: 'fading-circle'
@@ -94,9 +95,12 @@
                 this.$http.post('submitData.php',qs.stringify({'uid':this.uid}),{headers: {'Content-Type': 'application/x-www-form-urlencoded',},
                     }).then(function(res){
                         if(res.data.msg="succ"){
-                            setTimeout(function() {
-                                Indicator.close()
-                            }, 2000);
+                            Toast({
+                                message: '提交订单成功',
+                                duration: 1000
+                            });
+                            Indicator.close();
+                            _this.$router.push('/main/personCenter/myOrder');
                         }else{
                             
                         }
@@ -104,7 +108,7 @@
                         if(err.message=="Network Error"){
                             Indicator.close();
                             Toast({
-                                message: '谭嘉智吃屎啦！',
+                                message: '网络异常，请稍后重试',
                                 duration: 2000
                             });
                         }

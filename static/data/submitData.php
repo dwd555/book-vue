@@ -15,5 +15,7 @@ if($result==false){
 	echo '{"msg":"error"}';
 }else{
 	echo '{"msg":"succ"}';
+	$sql="DELETE FROM cartlist WHERE cid='$cid' && selected=5";
+	$result=mysqli_query($conn,$sql);
 }
 
