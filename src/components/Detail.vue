@@ -191,14 +191,15 @@
         this.bid=this.$route.params.id;
         let id = this.$route.params.id;
         let _this = this;
-        this.$http.get('bookdetail.php?id=' + id).then(function (res) {
+        // this.$http.get('bookdetail.php?id=' + id).then(function (res) {
+        this.$http.get('bookdetail?bid=' + id).then(function (res) {
           //console.log(res);
           _this.bookDetail = res.data;
           _this.img_lg = res.data.img_lg.split(';')
         }).catch(function (err) {
           console.log(err);
         });
-        this.$http.get('advertisement.php?id=' + id).then(function (res) {
+        this.$http.get('advertisement?bid=' + id).then(function (res) {
           _this.advertisement = res.data;
         }).catch(function (err) {
           console.log(err);

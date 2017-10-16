@@ -2,16 +2,18 @@
 	<div>
 		 <!-- <search ref='my' @on-change="getResult"  v-model="value" @on-cancel='back'></search> -->
 		 <div class="vux-search-box vux-search-fixed" style="top: 0px;">
-		  <div id="search_bar" class="weui_search_bar weui_search_focusing" ref='searchClick'>
-		    <form class="weui_search_outer">
+		  <div id="search_bar" class="weui-search-bar weui-search-bar_focusing" ref='searchClick'>
+		    <form class="weui-search-bar__form">
 		      <div class="vux-search-mask" style="display: none;"></div>
-		      <div class="weui_search_inner"><i class="weui_icon_search"></i> 
-		      <input ref='my' type="search" id="search_input" autofocus autocomplete="off" v-model='value' class="weui_search_input"> 
-		      <a href="javascript:" id="search_clear" class="weui_icon_clear" @click="clear"></a></div>
-		      <label for="search_input" id="search_text" class="weui_search_text"><i class="weui_icon_search"></i>
+		      <div class="weui-search-bar__box">
+		      	<i class="weui-icon-search"></i> 
+		      <input ref='my' type="search" id="search_input" autofocus autocomplete="off" v-model='value' class="weui-search-bar__input"> 
+		      <a href="javascript:" id="search_clear" class="weui-icon-clear" @click="clear"></a></div>
+		      <label for="search_input" id="search_text" class="weui-search-bar__label">
+		      	<i class="weui-icon-search"></i>
 		        <span>搜索</span></label></form>
-		    <a href="javascript:" id="search_cancel" class="weui_search_cancel" @click='back'>取消</a></div>
-		  <div id="search_show" class="weui_cells weui_cells_access vux-search_show"></div>
+		    <a href="javascript:" id="search_cancel" class="weui-search-bar__cancel-btn" @click='back'>取消</a></div>
+		  <div id="search_show" class="weui-cells vux-search_show"></div>
 		</div>
 		<div class="hot-search" v-if="hotSearch" >
         <p>热门搜索</p>
@@ -137,7 +139,7 @@
 		},
 		created(){
 			let _this=this;
-			this.$http.get('hot_search.php').then(function(res){
+			this.$http.get('hot_search').then(function(res){
 				//console.log(res.data.length)
 				for(var i=0;i<res.data.length;i++){
 		            if(res.data[i].name.indexOf("（")!==-1){

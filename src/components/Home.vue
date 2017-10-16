@@ -30,7 +30,9 @@
             <div class="book_main">
               <div class="book_img">
               <!-- <span class="book_index">{{key}}</span> -->
-                <img class="" :src="'/static/img/'+item.img_sm"></div>
+                <img class="" :src="'/static/img/'+item.img_sm">
+                  <!-- <img class="" :src="'http://127.0.0.1/myproject/book-vue/static/img/'+item.img_sm"> -->
+               </div>
               <div class="book_contain">
                 <p class="book_title textOverflow_hidden">
                   {{item.name}} </p>
@@ -147,7 +149,8 @@
             text: '加载中...',
             spinnerType: 'fading-circle'
           });
-        this.$http.get('booklist.php').then(function (res) {
+         // this.$http.get('booklist.php').then(function (res)
+        this.$http.get('booklist').then(function (res) {
           if(res.data){
             Indicator.close();
           }else{
@@ -175,7 +178,7 @@
         this.loading = true;
         let _this = this;
         let start = this.book_list.length;
-          _this.$http.get('booklist.php?start=' + start).then(function (res) {
+          _this.$http.get('/booklist?start=' + start).then(function (res) {
             if (res.data.length < 5) {
               _this.moreDataCanBeLoaded = true;
               _this.loadingmore=true;

@@ -76,7 +76,8 @@ const router = new VueRouter({
 //
 /*调试*/
 //axios.defaults.baseURL = 'http://192.168.31.128/project/static/data';
-axios.defaults.baseURL = 'http://127.0.0.1/myproject/book-vue/static/data';
+// axios.defaults.baseURL = 'http://127.0.0.1/myproject/book-vue/static/data';
+axios.defaults.baseURL = 'http://192.168.1.8:8080/vuebook/book/';
 //axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 //axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
